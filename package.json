@@ -1,0 +1,11 @@
+{
+  "name": "fabric-zendesk",
+  "version": "1.0.0",
+  "description": "A Cordova plugin for ZenDesk Mobile SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "k1dbl4ck@gmail.com",
+  "license": "ISC"
+}
