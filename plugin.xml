@@ -23,9 +23,15 @@
       </feature>
     </config-file>
     <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <activity android:name="com.zendesk.sdk.support.SupportActivity" android:theme="@style/Theme.AppCompat.Light"></activity>
+    </config-file>
     <source-file src="src/android/FabricZendesk.java" target-dir="src/io/atajo/cordova/zendesk/FabricZendesk" />
     
     <!-- <framework src="config/build.gradle" custom="true" type="gradleReference" /> --> 
+    <framework src="com.android.support:appcompat-v7:27+" />
+    <framework src="com.android.support:design:25.2.0" />
+
 
      <source-file src="platforms/android/res/values/zendesk.xml" target-dir="res/values" />
         <config-file target="res/values/zendesk.xml" parent="/*">
