@@ -4,7 +4,7 @@ var utilities = require("./utilities");
 
 module.exports = {
 
-    addFabricBuildToolsGradle: function() {
+    addFabricBuildToolsGradle: function () {
 
         var buildGradle = utilities.readBuildGradle();
 
@@ -37,12 +37,23 @@ module.exports = {
             "}",
             "apply plugin: 'io.fabric'",
             "// Fabric Cordova Plugin - End Fabric Build Tools",
+            "",
+            "configurations.all {",
+            "     resolutionStrategy.eachDependency { DependencyResolveDetails details ->",
+            "     def requested = details.requested",
+            "     if (requested.group == 'com.android.support') {",
+            "     if (!requested.name.startsWith(\"multidex\")) {",
+            "           details.useVersion '25.2.0'",
+            "           }",
+            "        }",
+            "      }",
+            "}"
         ].join("\n");
 
         utilities.writeBuildGradle(buildGradle);
     },
 
-    removeFabricBuildToolsFromGradle: function() {
+    removeFabricBuildToolsFromGradle: function () {
 
         var buildGradle = utilities.readBuildGradle();
 
